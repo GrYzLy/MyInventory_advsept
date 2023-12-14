@@ -1,0 +1,22 @@
+﻿@model ItemsListViewModel
+
+    <h1>@Model.Title</h1>
+    <form method="get">
+        <div>
+            <input type="search" asp-for="SearchTerm" />
+            <span>
+                <button class="btn btn-danger">
+                    Search
+                </button>
+
+            </span>
+        </div>
+    </form>
+    <table>
+        @foreach (var item in Model.Items)
+        {
+            <tr>
+                <td><a asp-controller="Item" asp-action="Details" asp-route-id="@item.Id">@item.Name</a></td>
+            </tr>
+        }
+    </table>
